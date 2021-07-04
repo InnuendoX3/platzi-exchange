@@ -14,13 +14,21 @@
       {{ name }}
       <span v-if="changePercent > 0">👍</span>
       <span v-else-if="changePercent < 0">👎</span>
-      <span v-else>🤞</span>
-
-      <span v-show="changePercent > 0">👍</span>
-      <span v-show="changePercent < 0">👎</span>
-      <span v-show="changePercent === 0">🤞</span>
-
+      <span v-else>🤞</span>    
     </h1>
+
+    <ul>
+      <li v-for="(price, index) in prices" v-bind:key="index">
+        {{ price }}
+      </li>
+    </ul>
+
+    <ul>
+      <li v-for="(item, index) in pricesWithDays" v-bind:key="index">
+        {{item.day}} - {{ item.value }}
+      </li>
+    </ul>
+
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
